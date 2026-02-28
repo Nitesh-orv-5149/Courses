@@ -61,7 +61,7 @@ export default function Hero() {
 
             {/* Main Heading */}
             <motion.div variants={itemVariants} className="space-y-4">
-              <h1 className="heading-lg flex flex-col gap-2">
+              <h1 className="heading-lg flex flex-col font-black">
                 Master Your Future{" "}
                 <span className="whitespace-nowrap">
                   with <span className="gradient-text">Expert-Led</span>
