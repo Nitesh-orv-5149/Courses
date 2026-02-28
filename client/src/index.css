@@ -1,1 +1,94 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0f0f1a;
+  color: #ffffff;
+  font-family: 'Montserrat', 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/5 border border-white/10;
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-lg bg-black/40 border border-white/10;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-purple-400 via-pink-500 to-purple-500 bg-clip-text text-transparent;
+  }
+
+  .gradient-border {
+    @apply relative before:absolute before:inset-0 before:bg-gradient-to-r before:from-purple-500 before:to-pink-500 before:p-[1px] before:rounded-lg;
+  }
+
+  .btn-gradient {
+    @apply bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-700 hover:to-purple-600 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 h-16 sm:h-14;
+  }
+
+  .btn-outline {
+    @apply border-2 border-white/20 text-white font-semibold py-4 px-8 rounded-full hover:bg-white/10 transition-all duration-300 flex items-center justify-center h-16 sm:h-14;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32;
+  }
+
+  .heading-lg {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight;
+  }
+
+  .heading-md {
+    @apply text-3xl sm:text-4xl font-bold tracking-tight;
+  }
+
+  .heading-sm {
+    @apply text-2xl sm:text-3xl font-bold tracking-tight;
+  }
+
+  .text-muted {
+    @apply text-gray-400;
+  }
+}
+
+/* Smooth scroll and animations */
+@supports (scrollbar-width: thin) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #9333ea #1a1a2e;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9333ea;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a855f7;
+}
