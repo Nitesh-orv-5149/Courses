@@ -1,6 +1,6 @@
-import { pgTable, text, timestamp, boolean } from "drizzle-orm/pg-core";
+const { pgTable, text, timestamp, boolean } = require("drizzle-orm/pg-core");
 
-export const learner = pgTable("learner", {
+const learner = pgTable("learner", {
     id: text("id").primaryKey(),
     name: text("name").notNull(),
     email: text("email").notNull().unique(),
@@ -8,7 +8,7 @@ export const learner = pgTable("learner", {
     createdAt: timestamp("createdAt").notNull(),
 });
 
-export const account = pgTable("account", {
+const account = pgTable("account", {
     id: text("id").primaryKey(),
     accountId: text("accountId").notNull(),
     providerId: text("providerId").notNull(),
@@ -25,3 +25,5 @@ export const account = pgTable("account", {
     createdAt: timestamp("createdAt").notNull(),
     updatedAt: timestamp("updatedAt").notNull(),
 });
+
+module.exports = { learner, account };
