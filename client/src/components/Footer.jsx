@@ -1,3 +1,7 @@
+/*
+  Design rationale: footer is simplified to neutral surfaces and consistent visual weight.
+  Token usage: royal-purple is reserved for interactive accents, not large backgrounds.
+*/
 import { motion } from 'framer-motion'
 
 export default function Footer() {
@@ -30,7 +34,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative border-t border-white/10 bg-gradient-to-b from-transparent via-[#0f0f1a] to-[#0f0f1a]">
+    <footer className="relative border-t border-neutral-300 bg-[#0f1629]">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -50,7 +54,7 @@ export default function Footer() {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="w-7 h-7 text-purple-400 drop-shadow-[0_0_10px_rgba(168,85,247,0.45)]"
+                  className="w-7 h-7 text-royal-purple"
                 >
                   <path
                     strokeLinecap="round"
@@ -59,9 +63,9 @@ export default function Footer() {
                   />
                 </svg>
               </div>
-              <span className="text-white font-bold text-lg">LuminaLMS</span>
+              <span className="text-charcoal-700 font-bold text-lg">LuminaLMS</span>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+            <p className="text-charcoal-700/75 text-sm leading-relaxed max-w-xs">
               Empowering the next generation of digital creators through high-quality, accessible education.
             </p>
           </motion.div>
@@ -69,13 +73,13 @@ export default function Footer() {
           {/* Footer Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <motion.div key={category} variants={itemVariants}>
-              <h3 className="text-white font-semibold mb-4">{category}</h3>
+              <h3 className="text-charcoal-700 font-semibold mb-4">{category}</h3>
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link}>
                     <a
                       href="#"
-                      className="text-gray-400 hover:text-purple-400 transition-colors text-sm"
+                      className="text-charcoal-700/70 hover:text-royal-purple transition-colors text-sm"
                     >
                       {link}
                     </a>
@@ -87,17 +91,17 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <motion.div variants={itemVariants} className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
+        <motion.div variants={itemVariants} className="h-px bg-neutral-300 mb-8" />
 
         {/* Bottom Footer */}
         <motion.div
           variants={itemVariants}
           className="flex flex-col md:flex-row items-center justify-between"
         >
-          <p className="text-gray-500 text-sm mb-4 md:mb-0">
+          <p className="text-charcoal-700/65 text-sm mb-4 md:mb-0">
             © {currentYear} LuminaLMS Platform. All rights reserved.
           </p>
-          <div className="flex items-center space-x-2 text-gray-500 text-sm">
+          <div className="flex items-center space-x-2 text-charcoal-700/65 text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"

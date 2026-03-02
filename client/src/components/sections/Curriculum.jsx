@@ -1,3 +1,7 @@
+/*
+  Design rationale: maintain accordion structure while replacing glow/gradient effects with crisp surfaces.
+  Token usage: module chips and focus rings use royal-purple for consistent interaction feedback.
+*/
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronDown, Play, FileText } from 'lucide-react'
@@ -57,7 +61,7 @@ export default function Curriculum() {
   }
 
   return (
-    <section className="section-container bg-gradient-to-b from-transparent via-purple-500/5 to-transparent">
+    <section className="section-container">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -69,7 +73,7 @@ export default function Curriculum() {
           variants={itemVariants}
           className="text-center mb-16"
         >
-          <span className="text-purple-400 font-semibold text-sm tracking-widest">
+          <span className="text-royal-purple font-semibold text-sm tracking-widest">
             COURSE SYLLABUS
           </span>
           <h2 className="heading-md mt-2">Course Curriculum</h2>
@@ -89,15 +93,15 @@ export default function Curriculum() {
                 onClick={() =>
                   setExpandedIndex(expandedIndex === index ? -1 : index)
                 }
-                className="w-full glass-dark border border-white/20 rounded-xl p-6 text-left hover:border-purple-500/50 transition-all duration-300 group"
-                whileHover={{ borderColor: 'rgba(147, 51, 234, 0.5)' }}
+                className="w-full glass-dark rounded-xl p-6 text-left hover:border-royal-purple/50 hover:shadow-softHover transition-all duration-150 group focus:outline-none focus:ring-2 focus:ring-royal-purple"
+                whileHover={{ borderColor: 'rgba(91, 33, 182, 0.45)' }}
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center font-bold text-white">
+                    <div className="w-10 h-10 rounded-md bg-royal-purple flex items-center justify-center font-bold text-white">
                       {module.module}
                     </div>
-                    <h3 className="font-bold text-white text-lg">
+                    <h3 className="font-bold text-charcoal-700 text-lg">
                       {module.title}
                     </h3>
                   </div>
@@ -105,7 +109,7 @@ export default function Curriculum() {
                     animate={{ rotate: expandedIndex === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ChevronDown className="w-6 h-6 text-purple-400 group-hover:text-purple-300 transition-colors" />
+                    <ChevronDown className="w-6 h-6 text-royal-purple group-hover:text-royal-purple-600 transition-colors" />
                   </motion.div>
                 </div>
               </motion.button>
@@ -120,7 +124,7 @@ export default function Curriculum() {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <div className="glass-dark border border-white/20 border-t-0 rounded-b-xl p-6 space-y-3 bg-gradient-to-b from-purple-500/5 to-transparent">
+                <div className="glass-dark border-t-0 rounded-b-xl p-6 space-y-3 bg-neutral-50">
                   {module.items.map((item, itemIndex) => {
                     const ItemIcon = item.icon
                     return (
@@ -129,15 +133,15 @@ export default function Curriculum() {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: itemIndex * 0.1 }}
-                        className="flex items-center justify-between p-4 rounded-lg hover:bg-white/5 transition-colors group cursor-pointer"
+                        className="flex items-center justify-between p-4 rounded-lg hover:bg-royal-purple/15 transition-colors group cursor-pointer"
                       >
                         <div className="flex items-center space-x-3">
-                          <ItemIcon className="w-5 h-5 text-purple-400 group-hover:text-purple-300" />
-                          <span className="text-gray-300 group-hover:text-white transition-colors">
+                          <ItemIcon className="w-5 h-5 text-royal-purple group-hover:text-royal-purple-600" />
+                          <span className="text-charcoal-700/85 group-hover:text-charcoal-700 transition-colors">
                             {item.title}
                           </span>
                         </div>
-                        <span className="text-sm text-gray-500 group-hover:text-gray-400">
+                        <span className="text-sm text-charcoal-700/60 group-hover:text-charcoal-700/80">
                           {item.duration}
                         </span>
                       </motion.div>

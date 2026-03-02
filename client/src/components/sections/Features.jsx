@@ -1,3 +1,7 @@
+/*
+  Design rationale: feature cards now use flat elevated panels with subtle motion only.
+  Token usage: royal-purple marks icon and border accents; neutral surfaces keep hierarchy clear.
+*/
 import { motion } from 'framer-motion'
 import { Shield, Users, Infinity } from 'lucide-react'
 
@@ -57,7 +61,7 @@ export default function Features() {
         </motion.h2>
         <motion.p
           variants={itemVariants}
-          className="text-xl text-gray-400 max-w-2xl mx-auto"
+          className="text-xl text-charcoal-700/75 max-w-2xl mx-auto"
         >
           Experience a seamless learning environment designed to help you master new skills efficiently.
         </motion.p>
@@ -76,31 +80,23 @@ export default function Features() {
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ y: -8 }}
+              whileHover={{ y: -4, scale: 1.02 }}
               className="group relative"
             >
-              {/* Hover Glow Effect */}
-              <motion.div
-                whileHover={{
-                  boxShadow: '0 0 40px rgba(147, 51, 234, 0.3)',
-                }}
-                className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"
-              />
-
               {/* Card */}
-              <div className="relative glass-dark p-8 rounded-2xl border border-white/20 h-full overflow-hidden group-hover:border-purple-500/50 transition-all duration-300">
+              <div className="relative glass-dark p-8 rounded-2xl h-full overflow-hidden group-hover:border-royal-purple/50 group-hover:shadow-softHover transition-all duration-150">
                 {/* Icon Container */}
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-purple-500/50 transition-all">
-                  <IconComponent className="w-8 h-8 text-purple-400" />
+                <div className="w-16 h-16 rounded-md bg-royal-purple/15 border border-royal-purple/30 flex items-center justify-center mb-6 transition-all">
+                  <IconComponent className="w-8 h-8 text-royal-purple" />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-white mb-3">
+                <h3 className="text-xl font-bold text-charcoal-700 mb-3">
                   {feature.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-400 leading-relaxed">
+                <p className="text-charcoal-700/75 leading-relaxed">
                   {feature.description}
                 </p>
 
@@ -108,7 +104,7 @@ export default function Features() {
                 <motion.div
                   whileHover={{ scaleX: 1 }}
                   initial={{ scaleX: 0 }}
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 origin-left"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-royal-purple origin-left"
                 />
               </div>
             </motion.div>

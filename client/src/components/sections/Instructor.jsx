@@ -1,3 +1,7 @@
+/*
+  Design rationale: instructor section now emphasizes content clarity over decorative gradients.
+  Token usage: royal-purple appears only in labels/icons and interactive affordances.
+*/
 import { motion } from 'framer-motion'
 import { Mail, Share2, Award } from 'lucide-react'
 
@@ -34,13 +38,8 @@ export default function Instructor() {
           variants={itemVariants}
           className="relative group"
         >
-          {/* Gradient Border Background */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/40 via-pink-500/20 to-purple-500/40 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
-
           {/* Main Card */}
-          <div className="relative glass-dark border border-white/20 rounded-3xl p-8 md:p-12 overflow-hidden group-hover:border-purple-500/50 transition-all duration-300">
-            {/* Background Gradient Accent */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+          <div className="relative glass-dark rounded-3xl p-8 md:p-12 overflow-hidden group-hover:border-royal-purple/40 group-hover:shadow-softHover transition-all duration-150">
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center relative z-10">
               {/* Left - Instructor Image Placeholder */}
@@ -50,11 +49,11 @@ export default function Instructor() {
               >
                 <motion.div
                   whileHover={{ scale: 1.05, rotate: 2 }}
-                  className="w-64 h-72 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-2 border-white/30 flex items-center justify-center overflow-hidden shadow-2xl"
+                  className="w-64 h-72 rounded-2xl bg-[#131d34] border border-neutral-300 flex items-center justify-center overflow-hidden shadow-soft"
                 >
                   <div className="text-center space-y-4">
                     <div className="text-7xl">👨‍🏫</div>
-                    <p className="text-gray-400 text-sm">Senior Design Partner</p>
+                    <p className="text-charcoal-700/70 text-sm">Senior Design Partner</p>
                   </div>
                 </motion.div>
               </motion.div>
@@ -67,7 +66,7 @@ export default function Instructor() {
                 {/* Label */}
                 <motion.span
                   variants={itemVariants}
-                  className="inline-block text-purple-400 font-semibold text-sm tracking-widest"
+                  className="inline-block text-royal-purple font-semibold text-sm tracking-widest"
                 >
                   LEAD INSTRUCTOR
                 </motion.span>
@@ -80,7 +79,7 @@ export default function Instructor() {
                 {/* Bio */}
                 <motion.p
                   variants={itemVariants}
-                  className="text-lg text-gray-400 leading-relaxed"
+                  className="text-lg text-charcoal-700/80 leading-relaxed"
                 >
                   Elena is a Senior Design Partner with over 15 years of experience leading creative teams at Fortune 500 companies. She has mentored over 50,000 students worldwide and specializes in bridging the gap between design and engineering.
                 </motion.p>
@@ -93,23 +92,23 @@ export default function Instructor() {
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-white/20 hover:border-purple-500/50 transition-all"
+                    className="w-12 h-12 rounded-full bg-[#131d34] border border-neutral-300 flex items-center justify-center hover:bg-royal-purple/20 hover:border-royal-purple/50 transition-all"
                   >
-                    <Award className="w-5 h-5 text-purple-400" />
+                    <Award className="w-5 h-5 text-royal-purple" />
                   </motion.button>
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-white/20 hover:border-purple-500/50 transition-all"
+                    className="w-12 h-12 rounded-full bg-[#131d34] border border-neutral-300 flex items-center justify-center hover:bg-royal-purple/20 hover:border-royal-purple/50 transition-all"
                   >
-                    <Mail className="w-5 h-5 text-purple-400" />
+                    <Mail className="w-5 h-5 text-royal-purple" />
                   </motion.button>
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-white/20 hover:border-purple-500/50 transition-all"
+                    className="w-12 h-12 rounded-full bg-[#131d34] border border-neutral-300 flex items-center justify-center hover:bg-royal-purple/20 hover:border-royal-purple/50 transition-all"
                   >
-                    <Share2 className="w-5 h-5 text-purple-400" />
+                    <Share2 className="w-5 h-5 text-royal-purple" />
                   </motion.button>
                 </motion.div>
               </motion.div>

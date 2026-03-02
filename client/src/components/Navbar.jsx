@@ -1,3 +1,7 @@
+/*
+  Design rationale: cleaner navigation with neutral surfaces and restrained brand color highlights.
+  Token usage: btn-primary for key action; neutral borders and royal-purple hover/focus states.
+*/
 import { useState } from 'react'
 import { Menu, X, Search } from 'lucide-react'
 import { motion } from 'framer-motion'
@@ -17,7 +21,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 w-full z-50 glass-dark border-b border-white/10"
+      className="fixed top-0 w-full z-50 bg-[#0f1629]/90 backdrop-blur border-b border-neutral-300"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
@@ -33,7 +37,7 @@ export default function Navbar() {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="w-7 h-7 text-purple-400 drop-shadow-[0_0_10px_rgba(168,85,247,0.45)]"
+                className="w-7 h-7 text-royal-purple"
               >
                 <path
                   strokeLinecap="round"
@@ -42,7 +46,7 @@ export default function Navbar() {
                 />
               </svg>
             </div>
-            <span className="text-white font-bold text-lg hidden sm:block">LuminaLMS</span>
+            <span className="text-charcoal-700 font-bold text-lg hidden sm:block">LuminaLMS</span>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -51,8 +55,8 @@ export default function Navbar() {
               <motion.a
                 key={link.name}
                 href={link.href}
-                whileHover={{ color: '#ec4899' }}
-                className="text-gray-300 hover:text-pink-500 transition-colors"
+                whileHover={{ color: '#5b21b6' }}
+                className="text-charcoal-700/80 hover:text-royal-purple transition-colors"
               >
                 {link.name}
               </motion.a>
@@ -66,16 +70,16 @@ export default function Navbar() {
               <input
                 type="text"
                 placeholder="Search courses..."
-                className="bg-white/5 border border-white/20 rounded-full pl-10 pr-4 h-11 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 w-48"
+                className="bg-[#111a2f] border border-neutral-300 rounded-md pl-10 pr-4 h-11 text-sm text-charcoal-700 placeholder-charcoal-700/45 focus:outline-none focus:ring-2 focus:ring-royal-purple w-48"
               />
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-charcoal-700/50" />
             </div>
 
             {/* Enroll Button */}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-700 hover:to-purple-600 text-white font-semibold px-8 rounded-full transition-all duration-300 transform hover:scale-105 h-11"
+              className="btn-primary h-11"
             >
               Enroll Now
             </motion.button>
@@ -85,7 +89,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white"
+              className="text-charcoal-700"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -104,14 +108,14 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="block text-gray-300 hover:text-pink-500 transition-colors"
+                className="block text-charcoal-700/80 hover:text-royal-purple transition-colors"
               >
                 {link.name}
               </a>
             ))}
             <motion.button
               whileHover={{ scale: 1.05 }}
-              className="w-full btn-gradient mt-4"
+              className="w-full btn-primary mt-4"
             >
               Enroll Now
             </motion.button>
